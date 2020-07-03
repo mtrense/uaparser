@@ -24,7 +24,7 @@ install-tools:
 ### BUILD ###################################################################
 
 build-uaparser: build-prerequisites
-	go build -ldflags "-X main.version=${VERSION} -X main.commit=$$(git rev-parse --short HEAD 2>/dev/null || echo \"none\")" -o bin/$(OUTPUT_DIR)$(BINARY_NAME) cli/main.go
+	go build -ldflags "-X main.version=${VERSION} -X main.commit=$$(git rev-parse --short HEAD 2>/dev/null || echo \"none\")" -o bin/$(OUTPUT_DIR)$(BINARY_NAME) cli/$(BINARY_NAME)/main.go
 build-uaparser-linux_amd64: build-prerequisites
 	$(MAKE) GOOS=linux GOARCH=amd64 OUTPUT_DIR=linux_amd64/ build
 build-uaparser-darwin_amd64: build-prerequisites
